@@ -133,6 +133,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
 
 
+
     //adds the two strings together
     private String copyName(String original, String name)
     {
