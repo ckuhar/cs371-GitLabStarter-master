@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
@@ -34,6 +37,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private EditText editText;
     private Spinner spinner;
 
+    private Button clear_button;
+    private Button lower_button;
+    private EditText editText;
+    private Button reverse_button;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -82,6 +89,14 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         editText = (EditText) findViewById(R.id.editText);
         button2 = (Button)findViewById(R.id.button2);
         button2.setOnClickListener(this);
+
+        clear_button = (Button)findViewById(R.id.clear_button);
+        clear_button.setOnClickListener(new ClearButtonListener());
+        lower_button = (Button)findViewById(R.id.lower_button);
+        lower_button.setOnClickListener(new LowerButtonListener());
+        reverse_button = (Button)findViewById(R.id.button4);
+        reverse_button.setOnClickListener(new ReverseButtonListener());
+        editText = (EditText) findViewById(R.id.editText);
     }
 
     /**
@@ -127,6 +142,35 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private String copyName(String original, String name)
     {
         return original + name;
+    }
+
+    private class ClearButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText("");
+        }
+    }
+
+    private class LowerButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText(editText.getText().toString().toLowerCase());
+        }
+    }
+
+    private class ReverseButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            String reverse = new StringBuilder(editText.getText().toString()).reverse().toString();
+            editText.setText(reverse);
+            //commnet
+        }
     }
 
     /**
