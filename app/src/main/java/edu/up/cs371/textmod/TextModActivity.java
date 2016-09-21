@@ -10,14 +10,19 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity {
@@ -27,7 +32,8 @@ public class TextModActivity extends ActionBarActivity {
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
+    private Button clear_button;
+    private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -73,6 +79,10 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        clear_button = (Button)findViewById(R.id.clear_button);
+        clear_button.setOnClickListener(new ClearButtonListener());
+
+        editText = (EditText) findViewById(R.id.editText);
     }
 
     /**
@@ -101,6 +111,15 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class ClearButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText("");
+        }
     }
 
     /**
