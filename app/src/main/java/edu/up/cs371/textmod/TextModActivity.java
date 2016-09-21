@@ -33,6 +33,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
     //UpperCase button
     private Button upperCase;
+    //Edit text button
     private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
