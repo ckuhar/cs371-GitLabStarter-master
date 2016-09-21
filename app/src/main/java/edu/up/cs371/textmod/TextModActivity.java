@@ -35,6 +35,7 @@ public class TextModActivity extends ActionBarActivity {
     private Button clear_button;
     private Button lower_button;
     private EditText editText;
+    private Button reverse_button;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -84,6 +85,8 @@ public class TextModActivity extends ActionBarActivity {
         clear_button.setOnClickListener(new ClearButtonListener());
         lower_button = (Button)findViewById(R.id.lower_button);
         lower_button.setOnClickListener(new LowerButtonListener());
+        reverse_button = (Button)findViewById(R.id.button4);
+        reverse_button.setOnClickListener(new ReverseButtonListener());
         editText = (EditText) findViewById(R.id.editText);
     }
 
@@ -130,6 +133,16 @@ public class TextModActivity extends ActionBarActivity {
         public void onClick(View v) {
             Log.i("this is a test", "hello");
             editText.setText(editText.getText().toString().toLowerCase());
+        }
+    }
+
+    private class ReverseButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            String reverse = new StringBuilder(editText.getText().toString()).reverse().toString();
+            editText.setText(reverse);
         }
     }
 
