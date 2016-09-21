@@ -16,17 +16,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+
+    private Button button2; //copyName button
+    private EditText editText;
+    private Spinner spinner;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -44,7 +50,7 @@ public class TextModActivity extends ActionBarActivity {
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -73,6 +79,9 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        editText = (EditText) findViewById(R.id.editText);
+        button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(this);
     }
 
     /**
@@ -101,6 +110,23 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //listener for all buttons
+    public void onClick(View v)
+    {
+        Button b = (Button) v;
+        if(v == button2)
+        {
+            editText.setText(copyName(editText.getText().toString(),
+                    spinner.getSelectedItem().toString()));
+        }
+    }
+
+    //adds the two strings together
+    private String copyName(String original, String name)
+    {
+        return original + name;
     }
 
     /**
