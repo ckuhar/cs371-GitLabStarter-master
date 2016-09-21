@@ -132,23 +132,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
-    //listener for all buttons
-    public void onClick(View v)
-    {
-        Button b = (Button) v;
-        if(v == button2)
-        {
-            editText.setText(copyName(editText.getText().toString(),
-                    spinner.getSelectedItem().toString()));
-        }
-        else if(v == upperCase)
-        {
-        Log.i("Getting text", ":)");
-        String text = editText.getText().toString();
-        text = text.toUpperCase();
-        editText.setText(text);
-        }
-    }
 
     //adds the two strings together
     private String copyName(String original, String name)
@@ -208,6 +191,23 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         @Override
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        //Turns the edit text to upper case
+        if(v == upperCase){
+            Log.i("Getting text", ":)");
+            String text = editText.getText().toString();
+            text = text.toUpperCase();
+            editText.setText(text);
+        }
+        Button b = (Button) v;
+        if(v == button2)
+        {
+            editText.setText(copyName(editText.getText().toString(),
+                    spinner.getSelectedItem().toString()));
         }
     }
 }
