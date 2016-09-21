@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
@@ -31,6 +33,14 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    private Button button2; //copyName button
+    private EditText editText;
+    private Spinner spinner;
+
+    private Button clear_button;
+    private Button lower_button;
+    private EditText editText;
+    private Button reverse_button;
     //UpperCase button
     private Button upperCase;
     //Edit text button
@@ -51,7 +61,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -83,6 +93,17 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         upperCase = (Button)findViewById(R.id.button6);
         upperCase.setOnClickListener(this);
         editText = (EditText)findViewById(R.id.editText);
+        editText = (EditText) findViewById(R.id.editText);
+        button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(this);
+
+        clear_button = (Button)findViewById(R.id.clear_button);
+        clear_button.setOnClickListener(new ClearButtonListener());
+        lower_button = (Button)findViewById(R.id.lower_button);
+        lower_button.setOnClickListener(new LowerButtonListener());
+        reverse_button = (Button)findViewById(R.id.button4);
+        reverse_button.setOnClickListener(new ReverseButtonListener());
+        editText = (EditText) findViewById(R.id.editText);
     }
 
     /**
@@ -111,6 +132,52 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //listener for all buttons
+    public void onClick(View v)
+    {
+        Button b = (Button) v;
+        if(v == button2)
+        {
+            editText.setText(copyName(editText.getText().toString(),
+                    spinner.getSelectedItem().toString()));
+        }
+    }
+
+    //adds the two strings together
+    private String copyName(String original, String name)
+    {
+        return original + name;
+    }
+
+    private class ClearButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText("");
+        }
+    }
+
+    private class LowerButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText(editText.getText().toString().toLowerCase());
+        }
+    }
+
+    private class ReverseButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            String reverse = new StringBuilder(editText.getText().toString()).reverse().toString();
+            editText.setText(reverse);
+            //commnet
+        }
     }
 
     /**
