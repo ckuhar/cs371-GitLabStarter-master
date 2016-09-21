@@ -143,6 +143,7 @@ public class TextModActivity extends ActionBarActivity {
             Log.i("this is a test", "hello");
             String reverse = new StringBuilder(editText.getText().toString()).reverse().toString();
             editText.setText(reverse);
+            //commnet
         }
     }
 
