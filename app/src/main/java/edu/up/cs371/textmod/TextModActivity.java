@@ -34,12 +34,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private ImageView imageView; // the view that shows the image
 
     private Button button2; //copyName button
-    private EditText editText;
     private Spinner spinner;
 
     private Button clear_button;
     private Button lower_button;
-    private EditText editText;
     private Button reverse_button;
     //UpperCase button
     private Button upperCase;
@@ -134,16 +132,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
-    //listener for all buttons
-    public void onClick(View v)
-    {
-        Button b = (Button) v;
-        if(v == button2)
-        {
-            editText.setText(copyName(editText.getText().toString(),
-                    spinner.getSelectedItem().toString()));
-        }
-    }
 
     //adds the two strings together
     private String copyName(String original, String name)
@@ -214,6 +202,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             String text = editText.getText().toString();
             text = text.toUpperCase();
             editText.setText(text);
+        }
+        Button b = (Button) v;
+        if(v == button2)
+        {
+            editText.setText(copyName(editText.getText().toString(),
+                    spinner.getSelectedItem().toString()));
         }
     }
 }
