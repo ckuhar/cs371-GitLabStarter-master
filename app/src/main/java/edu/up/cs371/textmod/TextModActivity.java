@@ -33,6 +33,7 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
     private Button clear_button;
+    private Button lower_button;
     private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -81,7 +82,8 @@ public class TextModActivity extends ActionBarActivity {
 
         clear_button = (Button)findViewById(R.id.clear_button);
         clear_button.setOnClickListener(new ClearButtonListener());
-
+        lower_button = (Button)findViewById(R.id.lower_button);
+        lower_button.setOnClickListener(new LowerButtonListener());
         editText = (EditText) findViewById(R.id.editText);
     }
 
@@ -119,6 +121,15 @@ public class TextModActivity extends ActionBarActivity {
         public void onClick(View v) {
             Log.i("this is a test", "hello");
             editText.setText("");
+        }
+    }
+
+    private class LowerButtonListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("this is a test", "hello");
+            editText.setText(editText.getText().toString().toLowerCase());
         }
     }
 
