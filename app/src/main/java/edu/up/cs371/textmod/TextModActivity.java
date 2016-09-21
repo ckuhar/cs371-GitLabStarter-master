@@ -199,7 +199,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
         //Turns the edit text to upper case
         if(v == upperCase){
-            Log.i("Getting text", ":)");
+            Log.i("Getting text", ":)"); //for the commit
             String text = editText.getText().toString();
             text = text.toUpperCase();
             editText.setText(text);
