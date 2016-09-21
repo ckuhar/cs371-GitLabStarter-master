@@ -34,12 +34,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private ImageView imageView; // the view that shows the image
 
     private Button button2; //copyName button
-
     private Spinner spinner;
 
     private Button clear_button;
     private Button lower_button;
-
     private Button reverse_button;
     //UpperCase button
     private Button upperCase;
@@ -133,6 +131,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     //adds the two strings together

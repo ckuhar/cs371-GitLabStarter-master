@@ -10,6 +10,10 @@
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/forchloe</item>
+        <item>@mipmap/nicole</item>
+
+        <item>@mipmap/chloe_picture</item>
+        <item>@mipmap/mikayla</item>
     </array>
 
     <string-array name="spinner_names">
@@ -17,6 +21,10 @@
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
         <item>Liz Frick</item>
+        <item>Nicole :)</item>
+
+        <item>Chloe Kuhar</item>
+        <item>Mikayla Whiteaker</item>
     </string-array>
 
 </resources>
