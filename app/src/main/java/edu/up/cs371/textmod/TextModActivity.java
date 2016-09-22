@@ -130,6 +130,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
 
         return super.onOptionsItemSelected(item);
+        //for the tag
     }
 
 
